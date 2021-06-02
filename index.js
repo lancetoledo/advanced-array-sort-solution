@@ -4,6 +4,26 @@
 
 const advancedSort = arr => {
   //Write code here
+  let result = [];
+
+  for (let i in arr) {
+    let value = arr[i];
+    let index = result.reduce((total, item, j) => {
+      if (item.includes(value)) {
+        return j;
+      } else {
+        return total;
+      }
+    }, -1);
+
+    if (index != -1) {
+      result[index].push(value);
+    } else {
+      result.push([value]);
+    }
+  }
+
+  return result;
 };
 
 // Example 1:
